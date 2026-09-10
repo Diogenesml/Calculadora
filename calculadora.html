@@ -1,84 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="js.js" />
-  </head>
-  <body>
-    <div class="fundo">
-      <h1>DIÓGENES MOREIRA LEGAL</h1>
-      <div class="calculadora">
-        <h1>Calculadora</h1>
-        <p id="resultado"></p>
-        <table>
-          <tr>
-            <td><button class="botao" onclick="clean()">C</button></td>
-            <td><button class="botao" onclick="back()"><</button></td>
-            <td><button class="botao" onclick="insert('/')">/</button></td>
-            <td><button class="botao" onclick="insert('*')">X</button></td>
-          </tr>
-          <tr>
-            <td><button class="botao" onclick="insert('7')">7</button></td>
-            <td><button class="botao" onclick="insert('8')">8</button></td>
-            <td><button class="botao" onclick="insert('9')">9</button></td>
-            <td><button class="botao" onclick="insert('-')">-</button></td>
-          </tr>
-          <tr>
-            <td><button class="botao" onclick="insert('4')">4</button></td>
-            <td><button class="botao" onclick="insert('5')">5</button></td>
-            <td><button class="botao" onclick="insert('6')">6</button></td>
-            <td><button class="botao" onclick="insert('+')">+</button></td>
-          </tr>
-          <tr>
-            <td><button class="botao" onclick="insert('1')">1</button></td>
-            <td><button class="botao" onclick="insert('2')">2</button></td>
-            <td><button class="botao" onclick="insert('3')">3</button></td>
-            <td rowspan="2">
-              <button class="botao" style="height: 106px" onclick="calcular()">
-                =
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <button class="botao" style="width: 106px" onclick="insert('0')">
-                0
-              </button>
-            </td>
-            <td><button class="botao" onclick="insert('.')">.</button></td>
-          </tr>
-        </table>
-      </div>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Calculadora simples feita com HTML, CSS e JavaScript por Diógenes Moreira." />
+  <title>Calculadora | Diógenes Moreira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Manrope:wght@500;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-decor" aria-hidden="true">
+    <span>+</span>
+    <span>÷</span>
+    <span>×</span>
+    <span>=</span>
+    <span>−</span>
+    <span>%</span>
+  </div>
+
+  <main class="calculator">
+    <p class="eyebrow">Diógenes Moreira</p>
+    <h1>Calculadora</h1>
+
+    <output id="resultado" aria-live="polite">0</output>
+
+    <div class="keys">
+      <button class="botao chave" type="button" data-action="clear">C</button>
+      <button class="botao chave" type="button" data-action="backspace" aria-label="Apagar último caractere">⌫</button>
+      <button class="botao operador" type="button" data-value="/">÷</button>
+      <button class="botao operador" type="button" data-value="*">×</button>
+
+      <button class="botao" type="button" data-value="7">7</button>
+      <button class="botao" type="button" data-value="8">8</button>
+      <button class="botao" type="button" data-value="9">9</button>
+      <button class="botao operador" type="button" data-value="-">−</button>
+
+      <button class="botao" type="button" data-value="4">4</button>
+      <button class="botao" type="button" data-value="5">5</button>
+      <button class="botao" type="button" data-value="6">6</button>
+      <button class="botao operador" type="button" data-value="+">+</button>
+
+      <button class="botao" type="button" data-value="1">1</button>
+      <button class="botao" type="button" data-value="2">2</button>
+      <button class="botao" type="button" data-value="3">3</button>
+      <button class="botao igual" type="button" data-action="calculate" aria-label="Calcular resultado">=</button>
+
+      <button class="botao zero" type="button" data-value="0">0</button>
+      <button class="botao" type="button" data-value=".">.</button>
     </div>
-    <script>
-      function insert(num) {
-        var numero = document.getElementById("resultado").innerHTML;
-        document.getElementById("resultado").innerHTML = numero + num;
-      }
+  </main>
 
-      function clean() {
-        document.getElementById("resultado").innerHTML = "";
-      }
-
-      function back() {
-        var resultado = document.getElementById("resultado").innerHTML;
-        document.getElementById("resultado").innerHTML = resultado.substring(
-          0,
-          resultado.length - 1
-        );
-      }
-
-      function calcular() {
-        var resultado = document.getElementById("resultado").innerHTML;
-        if (resultado) {
-          document.getElementById("resultado").innerHTML = eval(resultado);
-        } else {
-          document.getElementById("resultado").innerHTML = "Sem cálculo";
-        }
-      }
-    </script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
