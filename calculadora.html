@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Calculadora simples feita com HTML, CSS e JavaScript por Diógenes Moreira." />
-  <title>Calculadora | Diógenes Moreira</title>
+  <meta name="description" content="Calculadora científica feita com HTML, CSS e JavaScript por Diógenes Moreira." />
+  <title>Calculadora Científica | Diógenes Moreira</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -25,11 +25,31 @@
 
   <main class="calculator">
     <p class="eyebrow">Diógenes Moreira</p>
-    <h1>Calculadora</h1>
+    <h1>Calculadora Científica</h1>
 
     <output id="resultado" aria-live="polite">0</output>
 
-    <div class="keys">
+    <div class="keys keys-cientifica">
+      <button class="botao sci" type="button" data-value="sin(">sin</button>
+      <button class="botao sci" type="button" data-value="cos(">cos</button>
+      <button class="botao sci" type="button" data-value="tan(">tan</button>
+      <button class="botao sci modo" type="button" id="toggle-modo" data-action="toggle-mode" aria-pressed="false">DEG</button>
+      <button class="botao sci" type="button" data-value="(">(</button>
+
+      <button class="botao sci" type="button" data-value="log(">log</button>
+      <button class="botao sci" type="button" data-value="ln(">ln</button>
+      <button class="botao sci" type="button" data-value="√(">√</button>
+      <button class="botao sci" type="button" data-action="square">x²</button>
+      <button class="botao sci" type="button" data-value=")">)</button>
+
+      <button class="botao sci acid" type="button" data-value="π">π</button>
+      <button class="botao sci acid" type="button" data-value="E">e</button>
+      <button class="botao sci" type="button" data-value="^">xʸ</button>
+      <button class="botao sci" type="button" data-value="!">n!</button>
+      <button class="botao sci" type="button" data-value="%">%</button>
+    </div>
+
+    <div class="keys keys-basicas">
       <button class="botao chave" type="button" data-action="clear">C</button>
       <button class="botao chave" type="button" data-action="backspace" aria-label="Apagar último caractere">⌫</button>
       <button class="botao operador" type="button" data-value="/">÷</button>

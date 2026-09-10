@@ -107,7 +107,7 @@ body {
 .calculator {
   position: relative;
   z-index: 1;
-  width: min(320px, 100%);
+  width: min(380px, 100%);
   background: var(--ink);
   color: #fff;
   padding: 28px;
@@ -123,7 +123,7 @@ body {
 }
 
 .calculator h1 {
-  font: 800 24px var(--sans);
+  font: 800 22px var(--sans);
   letter-spacing: -0.03em;
   margin: 6px 0 20px;
 }
@@ -134,16 +134,57 @@ body {
   min-height: 64px;
   background: var(--panel);
   color: #fff;
-  font: 32px var(--mono);
+  font: 30px var(--mono);
   text-align: right;
   padding: 14px 16px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
   overflow-x: auto;
   white-space: nowrap;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.keys {
+/* ---------- Painel científico ---------- */
+.keys-cientifica {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.sci {
+  padding: 12px 0;
+  font: 600 13px var(--mono);
+  color: var(--accent2);
+  background: rgba(111, 176, 194, 0.1);
+  border: 1px solid rgba(111, 176, 194, 0.22);
+}
+
+.sci:hover {
+  background: rgba(111, 176, 194, 0.2);
+}
+
+.sci.acid {
+  color: var(--acid);
+  background: rgba(215, 255, 79, 0.1);
+  border-color: rgba(215, 255, 79, 0.22);
+}
+
+.sci.acid:hover {
+  background: rgba(215, 255, 79, 0.18);
+}
+
+.modo {
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.modo[aria-pressed="true"] {
+  background: var(--accent2);
+  color: var(--ink);
+}
+
+/* ---------- Painel básico (números e operadores) ---------- */
+.keys-basicas {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
@@ -155,58 +196,58 @@ body {
   gap: 10px;
 }
 
-.keys button:nth-child(1) {
+.keys-basicas button:nth-child(1) {
   grid-area: clear;
 }
-.keys button:nth-child(2) {
+.keys-basicas button:nth-child(2) {
   grid-area: back;
 }
-.keys button:nth-child(3) {
+.keys-basicas button:nth-child(3) {
   grid-area: div;
 }
-.keys button:nth-child(4) {
+.keys-basicas button:nth-child(4) {
   grid-area: mult;
 }
-.keys button:nth-child(5) {
+.keys-basicas button:nth-child(5) {
   grid-area: n7;
 }
-.keys button:nth-child(6) {
+.keys-basicas button:nth-child(6) {
   grid-area: n8;
 }
-.keys button:nth-child(7) {
+.keys-basicas button:nth-child(7) {
   grid-area: n9;
 }
-.keys button:nth-child(8) {
+.keys-basicas button:nth-child(8) {
   grid-area: minus;
 }
-.keys button:nth-child(9) {
+.keys-basicas button:nth-child(9) {
   grid-area: n4;
 }
-.keys button:nth-child(10) {
+.keys-basicas button:nth-child(10) {
   grid-area: n5;
 }
-.keys button:nth-child(11) {
+.keys-basicas button:nth-child(11) {
   grid-area: n6;
 }
-.keys button:nth-child(12) {
+.keys-basicas button:nth-child(12) {
   grid-area: plus;
 }
-.keys button:nth-child(13) {
+.keys-basicas button:nth-child(13) {
   grid-area: n1;
 }
-.keys button:nth-child(14) {
+.keys-basicas button:nth-child(14) {
   grid-area: n2;
 }
-.keys button:nth-child(15) {
+.keys-basicas button:nth-child(15) {
   grid-area: n3;
 }
-.keys button:nth-child(16) {
+.keys-basicas button:nth-child(16) {
   grid-area: equals;
 }
-.keys button:nth-child(17) {
+.keys-basicas button:nth-child(17) {
   grid-area: zero;
 }
-.keys button:nth-child(18) {
+.keys-basicas button:nth-child(18) {
   grid-area: dot;
 }
 
