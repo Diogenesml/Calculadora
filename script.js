@@ -19,7 +19,21 @@ const apagar = () => {
 };
 
 const inserir = (valor) => {
-  expressao += valor;
+  if (display.textContent === 'Erro' || display.textContent === 'Sem cálculo') {
+    expressao = '';
+  }
+
+  const ultimo = expressao.at(-1);
+  const operadores = ['+', '-', '*', '/', '^'];
+
+  if (operadores.includes(valor) && operadores.includes(ultimo)) {
+    expressao = expressao.slice(0, -1) + valor;
+  } else if (valor === '.' && /\d*\.\d*$/.test(expressao.split(/[+\-*/^()]/).at(-1) ?? '')) {
+    return;
+  } else {
+    expressao += valor;
+  }
+
   atualizarTela(expressao);
 };
 
@@ -102,7 +116,8 @@ const calcular = () => {
       return;
     }
 
-    expressao = String(resultado);
+    const normalizado = Math.abs(resultado) < 1e-12 ? 0 : Number.parseFloat(resultado.toPrecision(12));
+    expressao = String(normalizado);
     atualizarTela(expressao);
   } catch (erro) {
     atualizarTela('Erro');
@@ -127,7 +142,7 @@ document.querySelectorAll('.keys button').forEach((botao) => {
 document.addEventListener('keydown', (event) => {
   const { key } = event;
 
-  if (/[0-9.+\-*/^]/.test(key)) {
+  if (/^[0-9.+\-*/^]$/.test(key)) {
     inserir(key);
     return;
   }
