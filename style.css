@@ -152,7 +152,7 @@ body {
   color: #fff;
   font: 30px var(--mono);
   text-align: right;
-  padding: 14px 16px;
+  padding: 0;
   overflow-x: auto;
   white-space: nowrap;
 }
