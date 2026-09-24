@@ -27,9 +27,14 @@
     <p class="eyebrow">Diógenes Moreira</p>
     <h1>Calculadora Científica</h1>
 
-    <output id="resultado" aria-live="polite">0</output>
+    <div class="display" aria-live="polite" aria-atomic="true">
+      <span class="display-label">Expressão / resultado</span>
+      <output id="resultado">0</output>
+    </div>
 
-    <div class="keys keys-cientifica">
+    <section class="key-section" aria-labelledby="cientificas-label">
+      <h2 id="cientificas-label" class="sr-only">Funções científicas</h2>
+      <div class="keys keys-cientifica">
       <button class="botao sci" type="button" data-value="sin(">sin</button>
       <button class="botao sci" type="button" data-value="cos(">cos</button>
       <button class="botao sci" type="button" data-value="tan(">tan</button>
@@ -47,9 +52,12 @@
       <button class="botao sci" type="button" data-value="^">xʸ</button>
       <button class="botao sci" type="button" data-value="!">n!</button>
       <button class="botao sci" type="button" data-value="%">%</button>
-    </div>
+      </div>
+    </section>
 
-    <div class="keys keys-basicas">
+    <section class="key-section" aria-labelledby="basicas-label">
+      <h2 id="basicas-label" class="sr-only">Operações básicas</h2>
+      <div class="keys keys-basicas">
       <button class="botao chave" type="button" data-action="clear">C</button>
       <button class="botao chave" type="button" data-action="backspace" aria-label="Apagar último caractere">⌫</button>
       <button class="botao operador" type="button" data-value="/">÷</button>
@@ -72,7 +80,10 @@
 
       <button class="botao zero" type="button" data-value="0">0</button>
       <button class="botao" type="button" data-value=".">.</button>
-    </div>
+      </div>
+    </section>
+
+    <p class="keyboard-hint">Teclado: números e operadores · Enter calcula · Esc limpa · Backspace apaga</p>
   </main>
 
   <script src="script.js"></script>
